@@ -5,7 +5,7 @@
 This terraform module creates an AWS VPC with given CIDR block.It also creates multiple public and private subnet and for public subnets it set up IGW and approprite route tables.
 
 ## usage
-
+```
 resource "aws_vpc" "main" {
     cidr_block = var.vpc_config.cidr_block
 
@@ -56,3 +56,4 @@ resource "aws_route_table_association" "main" {
   subnet_id = aws_subnet.main[each.key].id
   route_table_id = aws_route_table.main[0].id
 }
+```
